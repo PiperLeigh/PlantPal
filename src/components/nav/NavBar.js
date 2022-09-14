@@ -6,16 +6,16 @@ export const NavBar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
-                Collection
+                <Link className="nav-link" to="/plantList">Collection</Link>
             </li>
             <li className="navbar__item">
-                Swaps
+                <Link className="nav-link" to="/swapList">Swaps</Link>
             </li>
             <li className="navbar__item">
-                Pals
+                <Link className="nav-link" to="/palList">Pals</Link>
             </li>
             <li className="navbar__item">
-                Profile
+                <Link className="nav-link" to="/">Profile</Link>
             </li>
             {
                 (localStorage.getItem("pp_token") !== null) ?

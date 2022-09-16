@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
-import { getPlant, destroyPlant } from "../../managers/PlantManager"
+import { getPlants, destroyPlant } from "../../managers/PlantManager"
 
 export const PlantList = () => {
     const navigate = useNavigate()
-    const [plants, setPlant] = useState([])
+    const [plants, setPlants] = useState([])
     const loadPlants = () => {
-        getPlant().then(data => setPlant(data))
+        getPlants().then(data => setPlants(data))
     }
     useEffect(() => {
         loadPlants()
@@ -16,12 +16,14 @@ export const PlantList = () => {
         <article className="plants">
             <button className="btn__plantAdd"
                 onClick={() => {
-                    navigate(`/plantForm`) //Where is gameList coming from?
+                    navigate(`/plantForm`)
                 }}>Add New Plant</button>
             {
                 plants.map(plant => {
                     return <section key={`plant--${plant.id}`} className="plant">
-                        <div className="plant__plantPhoto">{plant.plantPhoto}</div>
+                        <div>
+                            <img src={`http://localhost:8000${plant.plantPhoto}`} alt={plant.name} width={150}/>
+                        </div>
                         <div className="plant__name">{plant.name}</div>
                         <button className="btn__plantDelete"
                             onClick={() => {

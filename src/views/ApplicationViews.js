@@ -6,6 +6,7 @@ import { PlantList } from "../components/plant/PlantList"
 import { SwapList } from "../components/swap/SwapList"
 import { PalList } from "../components/pal/PalList"
 import { PlantForm } from "../components/plant/PlantForm"
+import { SwapForm } from "../components/swap/SwapForm"
 
 export const ApplicationViews = () => {
     return <>
@@ -16,6 +17,7 @@ export const ApplicationViews = () => {
             <Route path="/plantList" element={<PlantList />} />
             <Route path="/plantForm" element={<PlantForm />} />
             <Route path="/swapList" element={<SwapList />} />
+            <Route path="/swapForm" element={<SwapForm />} />
             <Route path="/palList" element={<PalList />} />
         </Route>
     </Routes>

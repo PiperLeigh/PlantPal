@@ -4,11 +4,11 @@ import { getPals } from "../../managers/PlantPalUserManager"
 
 export const PalList = (props) => {
     const [pals, setPals] = useState([])
-    const loadGames =() => {
+    const loadPals = () => {
         getPals().then(data => setPals(data))
     }
     useEffect(() => {
-        loadGames()
+        loadPals()
     }, [])
 
     return (

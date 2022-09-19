@@ -15,7 +15,7 @@ export const NavBar = () => {
                 <Link className="nav-link" to="/palList">Pals</Link>
             </li>
             <li className="navbar__item">
-                <Link className="nav-link" to="/">Profile</Link>
+                <Link className="nav-link" to="/palUserProfile">Profile</Link>
             </li>
             {
                 (localStorage.getItem("pp_token") !== null) ?

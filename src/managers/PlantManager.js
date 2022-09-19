@@ -1,11 +1,3 @@
-export const getGamer = (gamer) => {
-    return fetch("http://localhost:8000/gamers", {
-        headers: {
-            "Authorization": `Token ${localStorage.getItem("lu_token")}`
-        }
-    })
-        .then(res => res.json())
-}
 
 export const getPlants = () => {
     return fetch("http://localhost:8000/plants", {
@@ -44,6 +36,17 @@ export const createPlant = (plant) => {
         body: JSON.stringify(plant)
     })
         .then(res => res.json())
+}
+
+export const updatePlant = (currentPlant) => {
+    return fetch(`http://localhost:8000/plants/${currentPlant.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("pp_token")}`
+        },
+        body: JSON.stringify(currentPlant)
+    })
 }
 
 export const destroyPlant = (plant) => {

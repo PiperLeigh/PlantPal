@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from 'react-router-dom'
-import { getSunTypes, getWaterSpans, createPlant } from '../../managers/PlantManager.js'
+import { useNavigate, useParams } from 'react-router-dom'
+import { getSunTypes, getWaterSpans, updatePlant } from "../../managers/PlantManager"
 
-
-export const PlantForm = () => {
+export const UpdatePlantDetail = () => {
+    const [currentPlant, setCurrentPlant] = useState([])
     const navigate = useNavigate()
+    const { plantId } = useParams()
     const [sunTypes, setSunTypes] = useState([])
     const [waterSpans, setWaterSpans] = useState([])
     const [plantPhoto, setPlantPhoto] = useState("")
@@ -14,26 +15,6 @@ export const PlantForm = () => {
     const loadWaterSpans = () => {
         getWaterSpans().then(data => setWaterSpans(data))
     }
-
-    const [currentPlant, setCurrentPlant] = useState({
-        userId: localStorage.getItem("pp_token"),
-        plantPhoto: "",
-        name: "",
-        water: "",
-        waterSpanId: 1,
-        sunType: 2,
-        lastWatered: "",
-        petToxic: true,
-        notes: ""
-    })
-
-    useEffect(() => {
-        loadSunTypes()
-    }, [])
-    useEffect(() => {
-        loadWaterSpans()
-    }, [])
-
     const getBase64 = (file, callback) => {
         const reader = new FileReader();
         reader.addEventListener('load', () => callback(reader.result));
@@ -43,20 +24,46 @@ export const PlantForm = () => {
     const createPlantPhotoString = (plant) => {
         getBase64(plant.target.files[0], (base64ImageString) => {
             console.log("Base64 of file is", base64ImageString);
-
-            setPlantPhoto(base64ImageString)
+            let copy = {...currentPlant}
+            copy.plantPhoto = base64ImageString 
+            setCurrentPlant(copy)
         });
     }
 
     const changePlantState = (domEvent) => {
-        const newPlant = { ...currentPlant }
-        newPlant[domEvent.target.name] = domEvent.target.value
-        setCurrentPlant(newPlant)
+        const updatePlant = { ...currentPlant }
+        updatePlant[domEvent.target.name] = domEvent.target.value
+        setCurrentPlant(updatePlant)
     }
 
-    return (
-        <form className="plantForm">
+    useEffect(() => {
+        loadSunTypes()
+    }, [])
 
+    useEffect(() => {
+        loadWaterSpans()
+    }, [])
+
+    useEffect(
+        () => {
+            fetch(`http://localhost:8000/plants/${plantId}`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Token ${localStorage.getItem("pp_token")}`
+                    }
+                }
+            )
+                .then(response => response.json()
+                    .then((plantArray) => {
+                        setCurrentPlant(plantArray)
+                    }))
+        },
+        [plantId]
+    )
+
+    return (
+        <form>
             <input type="file" id="plantPhoto" onChange={createPlantPhotoString} />
 
 
@@ -137,25 +144,34 @@ export const PlantForm = () => {
 
             <button type="submit"
                 onClick={evt => {
+                    // Prevent form from being submitted
                     evt.preventDefault()
 
+                    let sunType = currentPlant?.sunType
+                    let waterSpanId = currentPlant?.waterSpanId
+
+                    typeof sunType === 'string' ? sunType = parseInt(sunType) : sunType = sunType.id
+                    typeof waterSpanId === 'string' ? waterSpanId = parseInt(waterSpanId) : waterSpanId = waterSpanId.id
+
                     const plant = {
-                        userId: currentPlant.userId,
-                        plantPhoto: plantPhoto,
+                        id: plantId,
+                        userId: localStorage.getItem("pp_token"),
+                        plantPhoto: currentPlant.plantPhoto,
                         name: currentPlant.name,
                         water: currentPlant.water,
-                        waterSpanId: currentPlant.waterSpanId,
-                        sunType: currentPlant.sunType,
+                        waterSpanId: currentPlant.waterSpanId.id,
+                        sunType: currentPlant.sunType.id,
                         lastWatered: currentPlant.lastWatered,
                         petToxic: currentPlant.petToxic,
                         notes: currentPlant.notes
                     }
-                    createPlant(plant)
+
+                    // Send POST request to your API
+                    updatePlant(plant)
                         .then(() => navigate("/plantList"))
                 }}
-                className="btn btn-primary">Create</button>
+                className="btn btn-primary">Update</button>
 
         </form>
     )
 }
-

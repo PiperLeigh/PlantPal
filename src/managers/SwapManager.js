@@ -19,6 +19,17 @@ export const createSwap = (swap) => {
         .then(res => res.json())
 }
 
+export const updateSwap = (currentSwap) => {
+    return fetch(`http://localhost:8000/swaps/${currentSwap.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Token ${localStorage.getItem("pp_token")}`
+        },
+        body: JSON.stringify(currentSwap)
+    })
+}
+
 export const destroySwap = (swap) => {
     return fetch(`http://localhost:8000/swaps/${swap.id}`, {
         method: "DELETE",

@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from 'react-router-dom'
-import { createSwap } from "../../managers/SwapManager"
-export const SwapForm = () => {
+import { useNavigate, useParams } from 'react-router-dom'
+import { updateSwap } from "../../managers/SwapManager"
+
+
+export const UpdateSwapDetail = () => {
     const navigate = useNavigate()
-    const [swapPhoto, setSwapPhoto] = useState("")
-    const [currentSwap, setCurrentSwap] = useState({
-        title: "",
-        coverPhoto: "",
-        host: localStorage.getItem("pp_token"),
-        location: "",
-        date: "",
-        time: "",
-        description: "",
-        attendees: []
-    })
+    const [currentSwap, setCurrentSwap] = useState([])
+    const { swapId } = useParams()
+    const [coverPhoto, setCoverPhoto] = useState("")
 
     const getBase64 = (file, callback) => {
         const reader = new FileReader();
@@ -21,19 +15,38 @@ export const SwapForm = () => {
         reader.readAsDataURL(file);
     }
 
-    const createSwapImageString = (swap) => {
+    const createCoverPhotoString = (swap) => {
         getBase64(swap.target.files[0], (base64ImageString) => {
             console.log("Base64 of file is", base64ImageString);
-
-            setSwapPhoto(base64ImageString)
+            let copy = { ...currentSwap }
+            copy.coverPhoto = base64ImageString
+            setCurrentSwap(copy)
         });
     }
 
     const changeSwapState = (domEvent) => {
-        const newSwap = { ...currentSwap }
-        newSwap[domEvent.target.name] = domEvent.target.value
-        setCurrentSwap(newSwap)
+        const updateSwap = { ...currentSwap }
+        updateSwap[domEvent.target.name] = domEvent.target.value
+        setCurrentSwap(updateSwap)
     }
+
+    useEffect(
+        () => {
+            fetch(`http://localhost:8000/swaps/${swapId}`,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Token ${localStorage.getItem("pp_token")}`
+                    }
+                }
+            )
+                .then(response => response.json()
+                    .then((swapArray) => {
+                        setCurrentSwap(swapArray)
+                    }))
+        },
+        [swapId]
+    )
     return (
         <form>
             <fieldset>
@@ -46,7 +59,7 @@ export const SwapForm = () => {
                 </div>
             </fieldset>
 
-            <input type="file" id="coverPhoto" onChange={createSwapImageString} />
+            <input type="file" id="coverPhoto" onChange={createCoverPhotoString} />
 
             <fieldset>
                 <div className="form-group">
@@ -92,8 +105,9 @@ export const SwapForm = () => {
                     evt.preventDefault()
 
                     const swap = {
+                        id: swapId,
                         title: currentSwap.title,
-                        coverPhoto: swapPhoto,
+                        coverPhoto: currentSwap.coverPhoto,
                         host: localStorage.getItem("pp_token"),
                         location: currentSwap.location,
                         date: currentSwap.date,
@@ -101,11 +115,10 @@ export const SwapForm = () => {
                         description: currentSwap.description,
                         attendees: []
                     }
-                    createSwap(swap)
+                    updateSwap(swap)
                         .then(() => navigate("/swapList"))
                 }}
-                className="btn btn-primary">Create</button>
-
+                className="btn btn-primary">Update</button>
         </form>
     )
 }

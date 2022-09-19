@@ -19,11 +19,13 @@ export const SwapList = () => {
                 onClick={() => {
                     navigate(`/swapForm`)
                 }}>Plan New Swap</button>
-                {
-                    swaps.map(swap => {
-                        return <section key={`swap--${swap.id}`} className="swap">
+            {
+                swaps.map(swap => {
+                    return <section key={`swap--${swap.id}`} className="swap">
                         <div>
-                            <img src={`http://localhost:8000${swap.coverPhoto}`} alt={swap.title} width={150}/>
+                            <button><img src={`http://localhost:8000${swap.coverPhoto}`} alt={swap.title} width={150} onClick={() => {
+                                navigate(`${swap.id}/update`)
+                            }} /></button>
                             <div className="swap__title">{swap.title}</div>
                             <div className="swap__host">hosted by {swap.host.user.username}</div>
                             <div className="swap__date">{swap.date}</div>
@@ -36,9 +38,9 @@ export const SwapList = () => {
                             }}
                         >Delete</button>
 
-                        </section>
-                    })
-                }
+                    </section>
+                })
+            }
         </article>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { getPlants, destroyPlant } from "../../managers/PlantManager"
 
 export const PlantList = () => {
@@ -22,7 +22,9 @@ export const PlantList = () => {
                 plants.map(plant => {
                     return <section key={`plant--${plant.id}`} className="plant">
                         <div>
-                            <img src={`http://localhost:8000${plant.plantPhoto}`} alt={plant.name} width={150}/>
+                            <button><img src={`http://localhost:8000${plant.plantPhoto}`} alt={plant.name} width={150} onClick={() => {
+                                navigate(`${plant.id}/update`)
+                            }} /></button>
                         </div>
                         <div className="plant__name">{plant.name}</div>
                         <button className="btn__plantDelete"
@@ -31,6 +33,7 @@ export const PlantList = () => {
                                     .then(() => loadPlants())
                             }}
                         >Delete</button>
+
                     </section>
                 })
             }

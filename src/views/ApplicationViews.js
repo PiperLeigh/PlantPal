@@ -10,6 +10,7 @@ import { SwapForm } from "../components/swap/SwapForm"
 import { UpdatePalProfile } from "../components/pal/Profile"
 import { UpdatePlantDetail } from "../components/plant/UpdatePlantDetail"
 import { UpdateSwapDetail } from "../components/swap/UpdateSwapDetail"
+import { SwapDetail } from "../components/swap/SwapDetail"
 
 export const ApplicationViews = () => {
     return <>
@@ -17,14 +18,15 @@ export const ApplicationViews = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<Authorized/>}>
-            <Route path="/plantList" element={<PlantList />} />
+            <Route path="/" element={<PlantList />} />
             <Route path="/plantForm" element={<PlantForm />} />
-            <Route path="/plantList/:plantId/update" element={<UpdatePlantDetail />} />
+            <Route path="/:plantId/update" element={<UpdatePlantDetail />} />
             <Route path="/swapList" element={<SwapList />} />
             <Route path="/swapForm" element={<SwapForm />} />
+            <Route path="/swapList/:swapId/detail" element={<SwapDetail />} />
             <Route path="/swapList/:swapId/update" element={<UpdateSwapDetail />} />
             <Route path="/palList" element={<PalList />} />
-            <Route path="/palUserProfile" element={<UpdatePalProfile />} />
+            <Route path="/updatePalProfile" element={<UpdatePalProfile />} />
         </Route>
     </Routes>
     </>

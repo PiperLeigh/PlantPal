@@ -1,0 +1,53 @@
+.swapListHeader {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn__swapAdd {
+    height: 4em;
+    width: 15em;
+    margin-top: 1.5em;
+}
+
+.btn__swapDelete {
+    height: 2em;
+    width: 5em;
+    margin-left: 9em;
+    margin-top: 1em;
+    background-color: white;
+    border: none;
+}
+
+.btn__swapEdit {
+    height: 2em;
+    width: 5em;
+    margin-left: .5em;
+    background-color: white;
+    border: none;
+}
+
+.swaps {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 4em;
+}
+
+.swapInfo {
+    padding-top: ;
+    padding: .5em;
+    border: .5px solid black;
+    border-top: none;
+    width: 15.5em;
+    height: 5em;
+    margin-left: .40em;
+    margin-top: -.5em;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+.swapPhoto {
+    width: 20em;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+}
+

@@ -19,14 +19,13 @@ export const createPal = (pal) => {
         .then(res => res.json())
 }
 
-export const updatePal = (pal) => {
-    return fetch(`http://localhost:8000/pals/${pal.id}`, {
+export const updatePal = (currentPal) => {
+    return fetch(`http://localhost:8000/pals/${currentPal.id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Token ${localStorage.getItem("pp_token")}`
         },
-        body: JSON.stringify(pal)
+        body: JSON.stringify(currentPal)
     })
-        .then(res => res.json())
 }

@@ -7,4 +7,16 @@
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+    margin-top: 1.5em;
+    margin-left: 10em;
+    font-size: 20px;
+    letter-spacing: 3px;
 }
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+}
+
+a:hover, a:active, a:visited {
+    color: #A5A58D;
+  }

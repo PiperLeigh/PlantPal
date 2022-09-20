@@ -1,0 +1,48 @@
+.plantListHeader {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.plantListCopy {
+    text-align:center;
+}
+
+.btn__plantAdd {
+    height: 4em;
+    width: 15em;
+    margin-top: 1.5em;
+    
+}
+
+.plants {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 4em;
+}
+
+.plant {
+    display: flex;
+}
+
+.plantPhoto {
+    border-radius: 50%;
+}
+
+.btn__plantDelete {
+    height: 2em;
+    width: 4em;
+    margin-top: 5em;
+    margin-left: 10em;
+    background-color: white;
+    border: none;
+}
+
+.plant__name {
+    margin-top: 2em;
+    margin-left: .5em;
+}
+
+.photoButton {
+    border:none;
+    background-color: white;
+}

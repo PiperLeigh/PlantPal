@@ -1,3 +1,15 @@
+export const getSingleSwap = (swapId) => {
+    return fetch(`http://localhost:8000/swaps/${swapId}`,
+        {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("pp_token")}`
+            }
+        })
+            .then(res => res.json())
+    }
+
+
+
 export const getSwaps = (gamer) => {
     return fetch("http://localhost:8000/swaps", {
         headers: {
@@ -36,5 +48,26 @@ export const destroySwap = (swap) => {
         headers: {
             "Authorization": `Token ${localStorage.getItem("pp_token")}`
         },
+    })
+}
+
+export const leaveSwap = (swapId) => {
+    // TODO: Write the DELETE fetch request to leave an swap
+    return fetch(`http://localhost:8000/swaps/${swapId}/leave`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("pp_token")}`
+        },
+    })
+}
+
+export const attendSwap = (swapId) => {
+    // TODO: Write the DELETE fetch request to leave an swap
+    return fetch(`http://localhost:8000/swaps/${swapId}/signup`, {
+        method: "POST",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("pp_token")}`
+        },
+        body: JSON.stringify(swapId)
     })
 }

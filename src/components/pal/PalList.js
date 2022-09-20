@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { getPals } from "../../managers/PlantPalUserManager"
-
+import "./PalList.css"
 
 
 export const PalList = (props) => {
@@ -13,6 +13,8 @@ export const PalList = (props) => {
     }, [])
 
     return (
+        <>
+        <h2 className="palCopy">Fill your life with plants and pals</h2>
         <article className="pals">
             {
                 pals.map(pal => {
@@ -24,5 +26,6 @@ export const PalList = (props) => {
                 })
             }
         </article>
+        </>
     )
 }

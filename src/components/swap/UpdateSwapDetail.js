@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
-import { updateSwap } from "../../managers/SwapManager"
+import { updateSwap, leaveSwap, attendSwap, getSwaps } from "../../managers/SwapManager"
 
 
 export const UpdateSwapDetail = () => {
@@ -47,7 +47,7 @@ export const UpdateSwapDetail = () => {
         },
         [swapId]
     )
-    return (
+    return (<>
         <form>
             <fieldset>
                 <div className="form-group">
@@ -120,5 +120,7 @@ export const UpdateSwapDetail = () => {
                 }}
                 className="btn btn-primary">Update</button>
         </form>
+    </>
     )
 }
+

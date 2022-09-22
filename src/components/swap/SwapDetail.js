@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, useParams } from 'react-router-dom'
-import { leaveSwap, attendSwap, getSwaps, getSingleSwap } from "../../managers/SwapManager"
-
+import { leaveSwap, attendSwap, getSingleSwap } from "../../managers/SwapManager"
+import "./SwapDetail.css"
 export const SwapDetail = () => {
     const navigate = useNavigate()
     const [currentSwap, setCurrentSwap] = useState([])
@@ -29,30 +29,38 @@ export const SwapDetail = () => {
                 .then((swapArray) => {
                     setCurrentSwap(swapArray)
                 })
-},
-    [swapId]
-    
+        },
+        [swapId]
+
     )
-return (
-    <article>
-        <img  className="swapPhoto" src={`http://localhost:8000${currentSwap.coverPhoto}`} alt="Cover photo for swap"/>
-        <div className="swap__title">{currentSwap.title}</div>
-        <div className="swap__title">{currentSwap.location}</div>
-        <div className="swap__title">{currentSwap.date}</div>
-        <div className="swap__title">{currentSwap.time}</div>
-        <div className="swap__title">{currentSwap.description}</div>
-        {
-            currentSwap.attending ?
-                <button onClick={() => {
-                    leaveSwap(currentSwap.id)
-                        .then(() => getSingleSwap(swapId).then(setCurrentSwap))
-                }}>Not Attending</button>
-                :
-                <button onClick={() => {
-                    attendSwap(currentSwap.id)
-                        .then(() => getSingleSwap(swapId).then(setCurrentSwap))
-                }}>Attending Swap</button>
-        }
-    </article>
-)
+    return (
+        <article className="swapDetail">
+            <div className="swapDetail__col1">
+                <h1 className="swap__title">{currentSwap.title}</h1>
+                <img className="swap__swapPhoto" src={`http://localhost:8000${currentSwap.coverPhoto}`} alt="Cover photo for swap" />
+                <div className="swap__date">{currentSwap.date}</div>
+                <div className="swap__time">{currentSwap.time}</div>
+                <div className="swap__location">{currentSwap.location}</div>
+            </div>
+
+            <div className="swapDetail__col2">
+            <div className="swap__description">{currentSwap.description}</div>
+
+            {
+                    currentSwap.attending ?
+                        <button className="bttnAttending" onClick={() => {
+                            leaveSwap(currentSwap.id)
+                                .then(() => getSingleSwap(swapId).then(setCurrentSwap))
+                        }}>Not Attending</button>
+                        :
+                        <button className="bttnAttending" onClick={() => {
+                            attendSwap(currentSwap.id)
+                                .then(() => getSingleSwap(swapId).then(setCurrentSwap))
+                        }}>Attend Swap</button>
+                }
+
+            </div>
+
+        </article>
+    )
 }

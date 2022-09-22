@@ -1,3 +1,28 @@
 .palCopy {
     text-align: center;
 }
+
+.pals {
+    display:flex;
+    justify-content: space-evenly;
+    margin-top: 4em;
+}
+
+.pal__profilePic {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.pal__text {
+    text-align: center;
+}
+
+.pal__userName {
+    font-size: larger;
+}
+
+.pal__firstName {
+    font-size: smaller;
+}

@@ -1,3 +1,13 @@
+export const getSinglePal = (palId) => {
+    return fetch(`http://localhost:8000/pals/${palId}`,
+        {
+            headers: {
+                "Authorization": `Token ${localStorage.getItem("pp_token")}`
+            }
+        })
+            .then(res => res.json())
+    }
+
 export const getPals = () => {
     return fetch("http://localhost:8000/pals", {
         headers: {
@@ -29,3 +39,5 @@ export const updatePal = (currentPal) => {
         body: JSON.stringify(currentPal)
     })
 }
+
+

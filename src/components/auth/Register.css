@@ -1,0 +1,24 @@
+.form--username {
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.form--password {
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginSubmit {
+    border: none;
+    
+}
+
+.btn--loginSubmit {
+    margin-left: 14.2em;
+    width: 6em;
+    height: 2em;
+    font-size: x-large;
+    margin-top: .5em;
+}

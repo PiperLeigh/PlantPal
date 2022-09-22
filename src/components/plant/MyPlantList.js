@@ -1,17 +1,36 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate, Link } from 'react-router-dom'
 import { getPlants, destroyPlant } from "../../managers/PlantManager"
+import { getSinglePal } from "../../managers/PlantPalUserManager"
 import "./PlantList.css"
 
-export const PlantList = () => {
+export const MyPlantList = () => {
     const navigate = useNavigate()
-    const [plants, setPlants] = useState([])
+    const [currentPal, setCurrentPal] = useState()
     const loadPlants = () => {
-        getPlants().then(data => setPlants(data))
+        fetch(`http://localhost:8000/pals/myProfile`,
+            {
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Token ${localStorage.getItem("pp_token")}`
+                }
+            }
+        )
+            .then(response => response.json()
+                .then((palArray) => {
+                    setCurrentPal(palArray)
+                }))
     }
-    useEffect(() => {
-        loadPlants()
-    }, [])
+
+
+    useEffect(
+        () => {
+            loadPlants()
+        },
+        []
+    )
+
+
 
     return (
         <>
@@ -24,7 +43,7 @@ export const PlantList = () => {
             </div>
             <article className="plants">
                 {
-                    plants.map(plant => {
+                    currentPal?.plants.map(plant => {
                         return <section key={`plant--${plant.id}`} className="plant">
                             <div>
                                 <button className="photoButton"><img className="plantPhoto" src={`http://localhost:8000${plant.plantPhoto}`} alt={plant.name} width={150} onClick={() => {
@@ -32,7 +51,7 @@ export const PlantList = () => {
                                 }} /></button>
                             </div>
                             <div className="plant__nameBackground">
-                            <div className="plant__name">{plant.name}</div>
+                                <div className="plant__name">{plant.name}</div>
                                 <button className="btn__plantDelete"
                                     onClick={() => {
                                         destroyPlant(plant)

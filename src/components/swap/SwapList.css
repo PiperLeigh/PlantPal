@@ -16,14 +16,16 @@
     margin-top: 1em;
     background-color: white;
     border: none;
+    font-size: x-small;
 }
 
 .btn__swapEdit {
     height: 2em;
     width: 5em;
-    margin-left: .5em;
+    margin-left: 3.6em;
     background-color: white;
     border: none;
+    font-size: x-small;
 }
 
 .swaps {
@@ -33,13 +35,12 @@
 }
 
 .swapInfo {
-    padding-top: ;
     padding: .5em;
     border: .5px solid black;
     border-top: none;
     width: 15.5em;
     height: 5em;
-    margin-left: .40em;
+    margin-left: .4em;
     margin-top: -.5em;
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
@@ -47,7 +48,27 @@
 
 .swapPhoto {
     width: 20em;
+    height: 20em;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
+    object-fit: cover;
+
 }
 
+.swapList__title {
+font-size: large;
+margin-top: .5em;
+margin-bottom: .1em;
+margin-left: .4em;
+}
+
+.swapList__host {
+    font-size: small;
+    margin-left: .5em;
+    }
+
+    .swapList__date {
+        font-size: small;
+        margin-top: .5em;
+        margin-left: .5em;
+        }

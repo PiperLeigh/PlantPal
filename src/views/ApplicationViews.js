@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom"
 import { Login } from "../components/auth/Login"
 import { Register } from "../components/auth/Register"
 import { Authorized } from "./Authorized"
-import { PlantList } from "../components/plant/PlantList"
+import { MyPlantList } from "../components/plant/MyPlantList"
 import { SwapList } from "../components/swap/SwapList"
 import { PalList } from "../components/pal/PalList"
 import { PlantForm } from "../components/plant/PlantForm"
@@ -18,7 +18,7 @@ export const ApplicationViews = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<Authorized/>}>
-            <Route path="/" element={<PlantList />} />
+            <Route path="/" element={<MyPlantList />} />
             <Route path="/plantForm" element={<PlantForm />} />
             <Route path="/:plantId/update" element={<UpdatePlantDetail />} />
             <Route path="/swapList" element={<SwapList />} />

@@ -1,0 +1,48 @@
+
+.swapDetail {
+display: flex;
+}
+
+.swapDetail__col1 {
+    margin-left: 5em;
+}
+
+.swapDetail__col2 {
+    margin-left: 7em;
+    margin-top: 5.7em;
+}
+
+.swap__title {
+    margin-bottom: 2em;
+}
+
+.swap__swapPhoto {
+    width: 20em;
+    height: 20em;
+    object-fit: cover;
+}
+
+.swap__location {
+    margin-top: 1em;
+}
+
+.swap__date {
+    margin-top: 3em;
+    font-size: larger;
+}
+
+.swap__time {
+    margin-top: .5em;
+    font-size: small;
+}
+
+.swap__description {
+    height: 27em;
+}
+
+.bttnAttending {
+    margin-left: 2.5em;
+    width: 8em;
+    height: 2em;
+    font-size: large;
+}

@@ -31,9 +31,9 @@ export const SwapList = () => {
                                     navigate(`${swap.id}/detail`)
                                 }} /></button>
                                 <div className="swapInfo">
-                                    <div className="swap__title">{swap.title}</div>
-                                    <div className="swap__host">hosted by {swap.host.user.username}</div>
-                                    <div className="swap__date">{swap.date}</div>
+                                    <div className="swapList__title">{swap.title}</div>
+                                    <div className="swapList__host">hosted by {swap.host.user.username}</div>
+                                    <div className="swapList__date">{swap.date}</div>
                                 </div>
                             </div>
 

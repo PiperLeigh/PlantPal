@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom'
 import { createSwap } from "../../managers/SwapManager"
+import "./SwapForm.css"
+
 export const SwapForm = () => {
     const navigate = useNavigate()
     const [swapPhoto, setSwapPhoto] = useState("")
@@ -35,77 +37,79 @@ export const SwapForm = () => {
         setCurrentSwap(newSwap)
     }
     return (
-        <form>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="title">Title </label>
-                    <input type="text" name="title" required autoFocus className="form-control"
-                        value={currentSwap.title}
-                        onChange={changeSwapState}
-                    />
-                </div>
-            </fieldset>
+        <form className="swapForm">
+            <div className="swapForm__col1">
+                <input className="swapCreate__coverPhotoInput" type="file" id="coverPhoto" onChange={createSwapImageString} />
+                <fieldset className="swapCreate__title">
+                    <div className="swapCreate__titleGroup">
+                        <label className="swapCreate__titleLabel" htmlFor="title">Title </label>
+                        <input className="swapCreate__titleInput" type="text" name="title" required autoFocus
+                            value={currentSwap.title}
+                            onChange={changeSwapState}
+                        />
+                    </div>
+                </fieldset>
 
-            <input type="file" id="coverPhoto" onChange={createSwapImageString} />
+                <fieldset className="swapCreate__date">
+                    <div className="swapCreate__dateGroup">
+                        <label className="swapCreate__dateLabel" htmlFor="date">Date </label>
+                        <input className="swapCreate__dateInput" type="date" name="date" required autoFocus
+                            value={currentSwap.date}
+                            onChange={changeSwapState}
+                        />
+                    </div>
+                </fieldset>
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="location">Location </label>
-                    <input type="text" name="location" required autoFocus className="form-control"
-                        value={currentSwap.location}
-                        onChange={changeSwapState}
-                    />
-                </div>
-            </fieldset>
+                <fieldset className="swapCreate__time">
+                    <div className="swapCreate__timeGroup">
+                        <label className="swapCreate__timeLabel" htmlFor="time">Time </label>
+                        <input className="swapCreate__timeInput" type="time" name="time" required autoFocus
+                            value={currentSwap.time}
+                            onChange={changeSwapState}
+                        />
+                    </div>
+                </fieldset>
+            </div>
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="date">Date </label>
-                    <input type="date" name="date" required autoFocus className="form-control"
-                        value={currentSwap.date}
-                        onChange={changeSwapState}
-                    />
-                </div>
-            </fieldset>
+            <div className="swapForm__col2">
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="time">Time </label>
-                    <input type="time" name="time" required autoFocus className="form-control"
-                        value={currentSwap.time}
-                        onChange={changeSwapState}
-                    />
-                </div>
-            </fieldset>
+            <fieldset className="swapCreate__location">
+                    <div className="form-group">
+                        <label className="swapCreate__locationLabel" htmlFor="location">Location </label>
+                        <input className="swapCreate__locationInput" type="text" name="location" required autoFocus
+                            onChange={changeSwapState}
+                        />
+                    </div>
+                </fieldset>
+                
+                <fieldset className="swapCreate__description">
+                    <div className="swapCreate__descriptionGroup">
+                        <label className="swapCreate__descriptionLabel" htmlFor="notes">Description </label>
+                        <textarea className="swapCreate__descriptionInput" id="description" name="description" rows="6" cols="46" value={currentSwap.description}
+                            onChange={changeSwapState}>
+                        </textarea>
+                    </div>
+                </fieldset>
 
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="notes">Description </label>
-                    <textarea id="description" name="description" rows="4" cols="50" value={currentSwap.description}
-                        onChange={changeSwapState}>
-                    </textarea>
-                </div>
-            </fieldset>
+                <button type="submit"
+                    onClick={evt => {
+                        evt.preventDefault()
 
-            <button type="submit"
-                onClick={evt => {
-                    evt.preventDefault()
-
-                    const swap = {
-                        title: currentSwap.title,
-                        coverPhoto: swapPhoto,
-                        host: localStorage.getItem("pp_token"),
-                        location: currentSwap.location,
-                        date: currentSwap.date,
-                        time: currentSwap.time,
-                        description: currentSwap.description,
-                        attendees: []
-                    }
-                    createSwap(swap)
-                        .then(() => navigate("/swapList"))
-                }}
-                className="btn btn-primary">Create</button>
-
+                        const swap = {
+                            title: currentSwap.title,
+                            coverPhoto: swapPhoto,
+                            host: localStorage.getItem("pp_token"),
+                            location: currentSwap.location,
+                            date: currentSwap.date,
+                            time: currentSwap.time,
+                            description: currentSwap.description,
+                            attendees: []
+                        }
+                        createSwap(swap)
+                            .then(() => navigate("/swapList"))
+                    }}
+                    className="btn__createSwap">Create</button>
+            </div>
         </form>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { loginUser } from "../../managers/AuthManager"
-import "./Auth.css"
+import "./Login.css"
 
 
 export const Login = () => {
@@ -36,20 +36,18 @@ export const Login = () => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Level Up</h1>
-                    <h2>Please sign in</h2>
-                    <fieldset>
-                        <label htmlFor="inputUsername"> Username address </label>
+                    <fieldset className="form--username">
+                        <label htmlFor="inputUsername"> Username</label>
                         <input ref={username} type="username" id="username" className="form-control" placeholder="Username address" required autoFocus />
                     </fieldset>
-                    <fieldset>
+                    <fieldset className="form--password">
                         <label htmlFor="inputPassword"> Password </label>
                         <input ref={password} type="password" id="password" className="form-control" placeholder="Password" required />
                     </fieldset>
-                    <fieldset style={{
+                    <fieldset  className="loginSubmit" style={{
                         textAlign: "center"
                     }}>
-                        <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
+                        <button className="btn--loginSubmit" type="submit">Sign In</button>
                     </fieldset>
                 </form>
             </section>

@@ -1,0 +1,97 @@
+
+.swapForm {
+    display: flex;
+    margin-top: 5em;
+    margin-left: 10em;
+}
+
+.btn__createSwap {
+    margin-left: 10.8em;
+    width: 6em;
+    height: 2em;
+    font-size: x-large;
+    margin-top: .5em;
+}
+
+.swapCreate__description {
+    border: none;
+}
+
+.swapCreate__title {
+    border: none;
+    margin-bottom: 1em;
+}
+
+.swapCreate__time {
+    border: none;
+    margin-bottom: 1em;
+}
+
+.swapCreate__date {
+    border: none;
+    margin-bottom: 1em;
+}
+
+.swapCreate__location {
+    border: none;
+    margin-bottom: 1em;
+}
+
+.swapCreate__descriptionGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.swapForm__col1 {
+
+}
+
+.swapForm__col2 {
+    margin-left: 3em;
+}
+
+.swapCreate__coverPhotoInput {
+    font-size: large;
+    margin-bottom: 2em;
+    margin-left: .8em;
+}
+
+.swapCreate__descriptionLabel {
+    margin-bottom: 1em;
+}
+
+.swapCreate__titleLabel {
+    margin-right: 1em;
+}
+
+.swapCreate__timeLabel {
+    margin-right: 1em;
+}
+
+.swapCreate__dateLabel {
+    margin-right: 1em;
+}
+
+.swapCreate__locationLabel {
+    margin-right: 1em;
+}
+
+
+
+.swapCreate__titleInput {
+    width: 12.8em;
+}
+
+.swapCreate__timeInput {
+    width: 12.6em;
+    text-align: center;
+}
+
+.swapCreate__dateInput {
+    width: 12.6em;
+    text-align: center;
+}
+
+.swapCreate__locationInput {
+    width: 22.8em;
+}

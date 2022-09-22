@@ -1,0 +1,31 @@
+.container--login {
+    top: 20%;
+    left: 30%;
+    display: block;
+    position: absolute;
+}
+
+.form--username {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+}
+
+.form--password {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+}
+
+.loginSubmit {
+    border: none;
+}
+
+.btn--loginSubmit {
+    width: 6em;
+    height: 2em;
+    font-size: x-large;
+    margin-top: .5em;
+}

@@ -1,0 +1,99 @@
+.profile {
+    display: flex;
+    margin-top: 5em;
+    margin-left: 10em;
+}
+
+.profile__image {
+    border-radius: 50%;
+    width: 20em;
+    height: 20em;
+    object-fit: cover;
+}
+
+.profile__imageInput {
+    margin-top: 2em;
+    border: none;
+    margin-left: 20em;
+    font-size: x-small;
+    margin-bottom: 3em;
+}
+
+.profile__usernameField {
+    border: none;
+}
+
+.profile__firstField {
+    border: none;
+}
+
+.profile__lastField {
+    border: none;
+}
+
+.profile__emailField {
+    border: none;
+}
+
+.profile__bioField {
+    border: none;
+}
+
+.profile__imageGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile__usernameFieldLabel {
+    margin-right: 1em;
+}
+
+.profile__firstLabel {
+    margin-right: 1em;
+}
+
+.profile__lastLabel {
+    margin-right: 1em;
+}
+
+.profile__emailLabel {
+    margin-right: 1em;
+}
+
+.profile__bioFieldLabel {
+    margin-right: 1em;
+}
+
+.profile__usernameInput {
+    width: 17.7em;
+}
+
+.profile__firstInput {
+    width: 16.1em;
+}
+
+.profile__lastInput {
+    width: 16.1em;
+}
+
+.profile__emailInput {
+    width: 19em;
+}
+
+.btn__updatePal {
+    margin-left: 7.1em;
+    width: 6em;
+    height: 2em;
+    font-size: x-large;
+    margin-top: .5em;
+}
+
+.profile__col2 {
+    margin-top: 14.5em;
+    margin-left: 5em;
+}
+
+.profile__bioGroup {
+    display: flex;
+    flex-direction: column;
+}

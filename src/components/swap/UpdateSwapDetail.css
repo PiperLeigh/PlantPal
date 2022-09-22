@@ -1,0 +1,93 @@
+.editSwap__container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 10em;
+    margin-top: 5em;
+}
+
+.editSwap__col2 {
+    margin-left: 4em;
+}
+.photoSet {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1em;
+}
+
+.editSwap__title {
+    border: none;
+}
+
+.when {
+    display: flex;
+}
+.editSwap__photoInput {
+    margin-top: 2em;
+    border: none;
+    margin-left: 18em;
+    font-size: x-small;
+}
+
+.editSwap__photo {
+    height: 20em;
+    width: 20em;
+}
+
+.editSwap__location {
+    border: none;
+}
+
+.editSwap__locationInput {
+    width: 20.1em;
+    padding-left: 5em;
+    margin-left: 1em;
+}
+
+.editSwap__date {
+    border: none;
+}
+
+.editSwap__time {
+    border: none;
+}
+
+.editSwap__title {
+    border: none;
+    font-size: x-large;
+
+}
+
+.editSwap__timeInput {
+    width: 10em;
+    text-align: center;
+    margin-left: 1em;
+}
+
+
+.editSwap__notesLabel {
+margin-left: .9em;
+margin-bottom: 1em;
+}
+.editSwap__dateInput {
+    width: 10.9em;
+    text-align: center;
+    margin-left: 1em;
+}
+
+.editSwap__titleInput {
+    width: 18.3em;
+    height: 3em;
+    margin-left: 1em;
+}
+
+.editSwap__notes {
+    border: none;
+}
+
+.btn__updateSwap {
+    margin-left: 12.2em;
+    width: 6em;
+    height: 2em;
+    font-size: x-large;
+    margin-top: .5em;
+}

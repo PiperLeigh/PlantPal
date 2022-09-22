@@ -1,0 +1,145 @@
+.plant__contain {
+    margin-top: 5em;
+    margin-left: 10em;
+
+}
+
+.plant__col1 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5em;
+}
+
+.plant__col2 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2em;
+}
+
+.plant__contain {
+    display: flex;
+    flex-direction: row;
+}
+
+.plant__photo {
+    border-radius: 50%;
+    width: 20em;
+    height: 20em;
+    object-fit: cover;
+}
+
+.toxic__choice1 {
+margin-right: 2em;
+}
+
+.plant__photoInput {
+    margin-top: 2em;
+    border: none;
+    margin-left: 20em;
+    font-size: x-small;
+}
+
+.plant__name {
+    border: none;
+    font-size: x-large;
+}
+
+.plant__sunType {
+    border: none;
+    font-size: x-large;
+}
+
+.plant__waterSet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.plant__water {
+    border: none;
+    font-size: x-large;
+}
+
+.water__input {
+    padding-left: 2em;
+    width: 2.5em;
+    height: 2.4em;
+    margin-left: .5em;
+}
+
+.waterPer__input {
+    height: 2.4em;
+    text-align: center;
+    width: 8.1em;
+    font-size: large;
+    margin: -2em;
+}
+
+.lastWatered__input {
+    height: 2.4em;
+    text-align: center;
+    width: 11.6em;
+    font-size: large;
+    margin: .5em;
+}
+
+.sunType__input{
+    height: 2.4em;
+    text-align: center;
+    width: 13em;
+    margin: .5em;
+    font-size: large;
+}
+
+.name__input{
+    height: 2.4em;
+    text-align: center;
+    width: 12.4em;
+    font-size: large;
+    margin-left: .5em;
+}
+
+.plant__waterPer {
+    border: none;
+    font-size: x-large;
+}
+
+.plant__lastWatered {
+    border: none;
+    font-size: x-large;
+}
+
+
+.plant__petToxic {
+    border: none;
+    font-size: x-large;
+    margin-left: .5em;
+}
+
+.plant__notesLabel {
+    border: none;
+    font-size: x-large;
+    margin-left: .5em;
+    margin-left: 1em;
+}
+
+.plant__notes {
+    border: none;
+    margin-top: .2em;
+    margin-left: 1em;
+}
+
+.btn__updatePlant {
+    margin-left: 7.1em;
+    width: 6em;
+    height: 2em;
+    font-size: x-large;
+    margin-top: .5em;
+}
+
+.toxic__choices {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: .5em;
+    margin-left: 1.5em;
+}

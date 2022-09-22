@@ -1,0 +1,107 @@
+.plantForm {
+    display: flex;
+    margin-top: 5em;
+    margin-left: 10em;
+}
+
+.photoInput {
+    font-size: large;
+    margin-bottom: 2em;
+    margin-left: 1em;
+}
+
+.col2 {
+    margin-left: 3em;
+}
+
+.nameField {
+    border: none;
+    margin-bottom: 1em;
+}
+
+
+.nameLabel {
+    margin-right: 1em;
+}
+
+.sunTypeField {
+    border: none;
+}
+
+.sunTypeLabel {
+    margin-right: 1em;
+}
+
+.sunTypeInput {
+    width: 13.3em;
+    text-align: center;
+}
+
+.waterField {
+    border: none;
+    margin-left: 1em;
+}
+
+.waterInput {
+    width: 3em;
+}
+
+.spanField {
+    border: none;
+    margin-left: -1em;
+}
+
+.spanInput {
+    text-align: center;
+}
+
+.lastWateredField {
+    border: none;
+}
+
+.lastWateredInput {
+    margin-left: 1em;
+    width: 10em;
+    text-align: center;
+
+}
+
+.petToxicField {
+    border: none;
+    display: flex;
+    margin-bottom: 1em;
+
+}
+
+.petToxicLabel {
+    margin-right: 1em;
+}
+
+.petToxicInput1 {
+    margin-right: 1.8em;
+}
+
+.waterGroup {
+    display: flex;
+}
+
+.notesField {
+    border: none;
+}
+
+.btn__createPlant {
+    margin-left: 14.2em;
+    width: 6em;
+    height: 2em;
+    font-size: x-large;
+    margin-top: .5em;
+}
+
+.toxicGroup {
+    display: flex;
+}
+
+.notesFieldGroup {
+    display: flex;
+    flex-direction: column;
+}
